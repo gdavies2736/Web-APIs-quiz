@@ -59,8 +59,6 @@ answer: "!==",
 //Need intro text to disappear and question and answer to appear.
 
 //Countdown timer function
-//From above - var countdown = document.getElementById("time");
-//From above - var timeLeft = 75;
 
 function startGame () {
 startScreen.style.display = "none";
@@ -86,11 +84,6 @@ choiceC.innerText = questions[i].options[2];
 choiceD.innerText = questions[i].options[3];
 }
 
-/*document.getElementById("time").textContent = timeLeft;
-if (timeLeft <=0) {
-
-};*/
-
 startButton.addEventListener("click", startGame);
 
 choices.addEventListener("click", checkAnswer);
@@ -104,10 +97,22 @@ timeLeft -= 5;
 i++;
 if (i >= questions.length) {
 questionScreen.classList.add("hide");
+endScreen.classList.remove("hide");
 return;
 }
 displayQuestion ();
 }
+
+/*function showEndScreen () {
+endScreen.classList.remove("hide");
+if (i >= questions.length)
+return
+}
+
+choiceD.addEventListener("click", showEndScreen);
+
+
+
 
 //On click - start quiz - X random selection, would it be a for loop to work through each question?
 //On click needs to be on every button
