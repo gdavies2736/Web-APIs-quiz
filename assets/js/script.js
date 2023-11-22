@@ -11,6 +11,7 @@ var startButton = document.getElementById("start");
 var startScreen = document.getElementById("start-screen");
 var questionScreen = document.getElementById("questions");
 var questionTitle = document.getElementById("question-title");
+var timesUp = document.getElementById("timesup");
 var choices = document.getElementById("choices");
 var choiceA = document.getElementById("choiceA");
 var choiceB = document.getElementById("choiceB");
@@ -47,7 +48,7 @@ options: ["shift()", "undo()", "unshift()", "pop()" ],
 answer: "pop()",
 },
 {
-title: "Which of these operators checks whether its two operands are note equal?",
+title: "Which of these operators checks whether its two operands are not equal?",
 options: ["===", "!=", "!==", "+="],
 answer: "!==",
 }
@@ -72,7 +73,10 @@ timer = setInterval(function(){
 if (timeLeft > 0){
 timeLeft -= 1
 countdown.innerText = timeLeft
-}   
+}  
+else if (timeLeft === 0) {
+endQuiz();
+} 
 }, 1000)
 }
 
@@ -93,15 +97,55 @@ var choice = event.target.innerText;
 var correctAnswer = questions[i].answer;
 if (choice !== correctAnswer) {
 timeLeft -= 5;
+} else if (choice === correctAnswer) {
+score = score + 5;
 }
 i++;
 if (i >= questions.length) {
 questionScreen.classList.add("hide");
-endScreen.classList.remove("hide");
+//endScreen.classList.remove("hide");
 return;
 }
 displayQuestion ();
 }
+
+
+function showEndScreen () {
+if (i >= questions.length){
+endScreen.classList.remove("hide");
+document.getElementById("final-score").innerHTML = score;
+}
+}
+
+choices.addEventListener("click", showEndScreen);
+
+//End quiz function if timer reaches 0
+//Add div tag with h2 time's up!
+
+function endQuiz () {
+    questionScreen.classList.add("hide");
+    endScreen.classList.remove("hide");
+    document.getElementById("final-score").innerHTML = score;
+    //timesUp.classList.remove("hide");
+}
+
+//Display score on final page
+/*function viewFinalScore () {
+    score.push(score);
+}
+
+
+//Input initials, get value and display final score.
+//var submitButton = document.getElementById("submit");
+//var enterInitials = document.getElementById("initials");
+//var feedback = document.getElementById("feedback");
+
+
+/*function retrieveData (){
+feedback.classList.remove("feedback-hide");
+feedback = document.getElementById("initials");
+}
+submitButton.addEventListener("click", retrieveData);
 
 /*function showEndScreen () {
 endScreen.classList.remove("hide");
@@ -111,12 +155,19 @@ return
 
 choiceD.addEventListener("click", showEndScreen);
 
+// highScores = 0
+//If (answerEntered = CorrectAnswer) {
+highscores += 5
+}
+
+
+
 
 
 
 //On click - start quiz - X random selection, would it be a for loop to work through each question?
 //On click needs to be on every button
-//on click needs to generate new question and array of options 
+//on click needs to ggit enerate new question and array of options 
 //if correct answer selected, display "Correct!"
 //else display "Wrong!"
 
