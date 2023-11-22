@@ -5,13 +5,13 @@ var countdown = document.getElementById("time");
 var timeLeft = 75;
 var timer;
 var score = 0;
-var highScores = [];
+//var highScores = [];
 var i = 0;
 var startButton = document.getElementById("start");
 var startScreen = document.getElementById("start-screen");
 var questionScreen = document.getElementById("questions");
 var questionTitle = document.getElementById("question-title");
-var timesUp = document.getElementById("timesup");
+//var timesUp = document.getElementById("timesup");
 var choices = document.getElementById("choices");
 var choiceA = document.getElementById("choiceA");
 var choiceB = document.getElementById("choiceB");
@@ -21,7 +21,8 @@ var endScreen = document.getElementById("end-screen");
 var finalScore = document.getElementById("final-score");
 var submitButton = document.getElementById("submit");
 var enterInitials = document.getElementById("initials");
-var feedback = document.getElementById("feedback");
+//var feedback = document.getElementById("feedback");
+var highScoresPage = document.getElementById("highScoresPage");
 
 //Create questions for quiz inside variable
 //Should contain question title, options and answer.
@@ -126,19 +127,22 @@ function endQuiz () {
     questionScreen.classList.add("hide");
     endScreen.classList.remove("hide");
     document.getElementById("final-score").innerHTML = score;
-    //timesUp.classList.remove("hide");
 }
 
-//Display score on final page
-/*function viewFinalScore () {
-    score.push(score);
+//Add event listener to submitButton. 
+//On click of submit button, hide endScreen.
+//On click of submit button, show highScores screen.
+//Take input initials, get value and display initials + final score.
+
+
+function getHighScores () {
+endScreen.classList.add("hide");
+highScoresPage.classList.remove("hide");
+var initals = document.getElementById("initials").value;
+document.getElementById("highscores").innerHTML = "1. " + initals + " " + score;
 }
 
-
-//Input initials, get value and display final score.
-//var submitButton = document.getElementById("submit");
-//var enterInitials = document.getElementById("initials");
-//var feedback = document.getElementById("feedback");
+submitButton.addEventListener("click", getHighScores);
 
 
 /*function retrieveData (){
