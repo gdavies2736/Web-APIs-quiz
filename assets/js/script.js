@@ -5,13 +5,11 @@ var countdown = document.getElementById("time");
 var timeLeft = 75;
 var timer;
 var score = 0;
-//var highScores = [];
 var i = 0;
 var startButton = document.getElementById("start");
 var startScreen = document.getElementById("start-screen");
 var questionScreen = document.getElementById("questions");
 var questionTitle = document.getElementById("question-title");
-//var timesUp = document.getElementById("timesup");
 var choices = document.getElementById("choices");
 var choiceA = document.getElementById("choiceA");
 var choiceB = document.getElementById("choiceB");
@@ -21,10 +19,10 @@ var endScreen = document.getElementById("end-screen");
 var finalScore = document.getElementById("final-score");
 var submitButton = document.getElementById("submit");
 var enterInitials = document.getElementById("initials");
-//var feedback = document.getElementById("feedback");
 var highScoresPage = document.getElementById("highScoresPage");
 
-//Create questions for quiz inside variable
+//Create questions for quiz inside variable questions. 
+//Create array of objects.
 //Should contain question title, options and answer.
 
 var questions = [ 
@@ -55,12 +53,12 @@ answer: "!==",
 }
 ]
 
-//Start the quiz - on click of start button, first quiz question should appear
+//Start the quiz - on click of start button, first quiz question should appear.
+//Create startGame function.
+//On starting the game, the start question should be hidden.
+//On starting the game, the question screen should appear.
 //timer should begin on click of start button.
-//create timer 
-//Need intro text to disappear and question and answer to appear.
-
-//Countdown timer function
+//create countdown timer function.
 
 function startGame () {
 startScreen.style.display = "none";
@@ -81,6 +79,9 @@ endQuiz();
 }, 1000)
 }
 
+//Create function to display question and answers
+//Use innerText to dynamically change text of question and answers.
+
 function displayQuestion () {
 questionTitle.innerText = questions[i].title;
 choiceA.innerText = questions[i].options[0];
@@ -91,7 +92,10 @@ choiceD.innerText = questions[i].options[3];
 
 startButton.addEventListener("click", startGame);
 
-choices.addEventListener("click", checkAnswer);
+//Check whether user selects correct answer.
+//If user answer = correct answer, should increments by 5.
+//If user answer !== correct answer, time decrements by 5.
+//Use i++ to go through questions variable array.
 
 function checkAnswer (event) {
 var choice = event.target.innerText;
@@ -104,12 +108,16 @@ score = score + 5;
 i++;
 if (i >= questions.length) {
 questionScreen.classList.add("hide");
-//endScreen.classList.remove("hide");
 return;
 }
 displayQuestion ();
 }
 
+choices.addEventListener("click", checkAnswer);
+
+//On final answer submission question screen should be hidden.
+//End screen presented.
+//End screen shows user score.
 
 function showEndScreen () {
 if (i >= questions.length){
@@ -120,13 +128,11 @@ document.getElementById("final-score").innerHTML = score;
 
 choices.addEventListener("click", showEndScreen);
 
-//End quiz function if timer reaches 0
-//Add div tag with h2 time's up!
 
 function endQuiz () {
-    questionScreen.classList.add("hide");
-    endScreen.classList.remove("hide");
-    document.getElementById("final-score").innerHTML = score;
+questionScreen.classList.add("hide");
+endScreen.classList.remove("hide");
+document.getElementById("final-score").innerHTML = score;
 }
 
 //Add event listener to submitButton. 
@@ -143,41 +149,3 @@ document.getElementById("highscores").innerHTML = "1. " + initals + " " + score;
 }
 
 submitButton.addEventListener("click", getHighScores);
-
-
-/*function retrieveData (){
-feedback.classList.remove("feedback-hide");
-feedback = document.getElementById("initials");
-}
-submitButton.addEventListener("click", retrieveData);
-
-/*function showEndScreen () {
-endScreen.classList.remove("hide");
-if (i >= questions.length)
-return
-}
-
-choiceD.addEventListener("click", showEndScreen);
-
-// highScores = 0
-//If (answerEntered = CorrectAnswer) {
-highscores += 5
-}
-
-
-
-
-
-
-//On click - start quiz - X random selection, would it be a for loop to work through each question?
-//On click needs to be on every button
-//on click needs to ggit enerate new question and array of options 
-//if correct answer selected, display "Correct!"
-//else display "Wrong!"
-
-//Need function for quiz end - stop timer with clear interval, end screen to show final score, code to hide questions section. 
-//How to change from first page into questions - options
-
-//**How it's going to work**/
-
-
