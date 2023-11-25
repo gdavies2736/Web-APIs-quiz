@@ -108,6 +108,7 @@ score = score + 5;
 i++;
 if (i >= questions.length) {
 questionScreen.classList.add("hide");
+clearInterval (timer);
 return;
 }
 displayQuestion ();
@@ -130,6 +131,7 @@ choices.addEventListener("click", showEndScreen);
 
 
 function endQuiz () {
+clearInterval (timer);
 questionScreen.classList.add("hide");
 endScreen.classList.remove("hide");
 document.getElementById("final-score").innerHTML = score;
