@@ -61,6 +61,8 @@ I  found that it took me quite a bit of time to think logically about the differ
 
 
 
+
+
 3. Usage
 
 This project may be useful for those learning Javascript concepts including: 
@@ -74,13 +76,17 @@ To access this project, the deployed website can be viewed at:
 
 https://gdavies2736.github.io/Web-APIs-quiz/
 
- 
+
+
+ 
 
 
 4. Installation
 
    
 No Installation necessary.
+
+
 
 
 
@@ -96,6 +102,8 @@ Freecodecamp - https://www.freecodecamp.org 
 W3Schools - https://www.w3schools.com/
 
 Mimo application - https://mimo.org/ 
+
+
 
 
 
