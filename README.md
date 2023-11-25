@@ -12,7 +12,7 @@
 
 1. Description
 
-This project involved creating a timed multiple choice quiz on the topic of Javascript to run in the browser. Each correct answer has a score of 5 assigned to it. The quiz begins on the click of the start button. When the user selects the answer for each question they are taken to the next question. At the end of the quiz the user finds out their score. 
+This project involved creating a timed multiple choice quiz on the topic of Javascript to run in the browser. Each correct answer has a score of 5 assigned to it. The quiz begins on the click of the start button. When the user selects the answer for each question they are taken to the next question. At the end of the quiz the user finds out their score.
 The screenshots below show how the screen initially appears and the various stages of the password generator process. 
 To begin with the user will see the following screen:
 
