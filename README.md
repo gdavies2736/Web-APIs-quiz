@@ -60,7 +60,7 @@ The biggest challenge was trying to initially understand how to hide the introdu
 I  found that it took me quite a bit of time to think logically about the different steps involved in creating the quiz. I then spent quite a bit of time trying to understand what variables I would need to create within javascript. 
 
 
-
+<br>
 
 
 3. Usage
@@ -78,7 +78,7 @@ https://gdavies2736.github.io/Web-APIs-quiz/
 
 
 
- 
+ <br>
 
 
 4. Installation
@@ -88,7 +88,7 @@ No Installation necessary.
 
 
 
-
+<br>
 
 
 5. Credits
@@ -104,7 +104,7 @@ W3Schools - https://www.w3schools.com/
 Mimo application - https://mimo.org/ 
 
 
-
+<br>
 
 
 6. License
